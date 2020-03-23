@@ -43,7 +43,7 @@ function initRecipes() {
         {
             "name" : ["shovel", "pala"], // 4
             "mats" : [
-                {id : 4, quantity : 5, recipe : true}, // fragile shovel
+                {id : 3, quantity : 1, recipe : true}, // fragile shovel
                 {id : 3, quantity : 1, recipe : false} // iron nugget
             ]
         },
