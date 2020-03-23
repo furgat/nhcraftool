@@ -1,19 +1,19 @@
 function initRecipes() {
     window.materialNames = [
-        ["stick", "rama"], // 0
+        ["tree branch", "rama"], // 0
         ["stone", "piedra"], // 1
-        ["normal plank", "tabla normal"], // 2
+        ["normal wood", "tabla normal"], // 2
         ["iron nugget", "pepita de hierro"], // 3
-        ["rigid plank", "tabla rígida"], // 4
-        ["flexible plank", "tabla flexible"], // 5
-        ["wasp's nest","avispero"], // 6
+        ["hardwood", "tabla rígida"], // 4
+        ["softwood", "tabla flexible"], // 5
+        ["wasp nest","avispero"], // 6
         ["weeds","maleza"], // 7
-        ["clam","almeja japonesa"], // 8
+        ["manila clam","almeja japonesa"], // 8
     ]
 
     window.recipes = [
         {
-            "name" : ["fragile axe", "hacha frágil"], // 0
+            "name" : ["flimsy axe", "hacha frágil"], // 0
             "mats" : [
                 {id : 0, quantity : 5, recipe : false}, // stick
                 {id : 1, quantity : 1, recipe : false} // stone
@@ -35,7 +35,7 @@ function initRecipes() {
             ]
         },
         {
-            "name" : ["fragile shovel", "pala frágil"], // 3
+            "name" : ["flimsy shovel", "pala frágil"], // 3
             "mats" : [
                 {id : 4, quantity : 5, recipe : false} // rigid wood
             ]
@@ -48,7 +48,7 @@ function initRecipes() {
             ]
         },
         {
-            "name" : ["fragile fishing pole", "caña frágil"], // 5
+            "name" : ["flimsy fishing pole", "caña frágil"], // 5
             "mats" : [
                 {id : 0, quantity : 5, recipe : false} // stick
             ]
@@ -61,7 +61,7 @@ function initRecipes() {
             ]
         },
         {
-            "name" : ["fragile net", "red frágil"], // 7
+            "name" : ["flimsy net", "red frágil"], // 7
             "mats" : [
                 {id : 0, quantity : 5, recipe : false} // stick
             ]
@@ -74,7 +74,7 @@ function initRecipes() {
             ]
         },
         {
-            "name" : ["fragile watering can", "regadera frágil"], // 9
+            "name" : ["flimsy watering can", "regadera frágil"], // 9
             "mats" : [
                 {id : 5, quantity : 5, recipe : false} // stick
             ]
@@ -93,13 +93,13 @@ function initRecipes() {
             ]
         },
         {
-            "name" : ["pole", "garrocha"], // 3
+            "name" : ["vaulting pole", "garrocha"], // 3
             "mats" : [
                 {id : 5, quantity : 5, recipe : false} // flexible wood
             ]
         },
         {
-            "name" : ["hand ladder", "escalera de mano"], // 3
+            "name" : ["ladder", "escalera de mano"], // 3
             "mats" : [
                 {id : 2, quantity : 4, recipe : false}, // normal wood
                 {id : 4, quantity : 4, recipe : false}, // rigid wood
