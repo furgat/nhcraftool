@@ -11,7 +11,7 @@
 
 body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 input[type="text"] {
@@ -27,6 +27,16 @@ button {
     border: 1px solid #212121;
 }
 
+h1 {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    float: left;
+}
+
+.lang-picker-wrapper {
+    float: right;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
 .interface-columns {
     width: 100%;
     display: flex;
@@ -36,7 +46,8 @@ button {
 .col {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0.5rem;
+    max-height: 80vh;
 }
 
 .col-30 {
@@ -51,8 +62,14 @@ button {
     padding-left: 0;
 }
 
+.main-section {
+    padding-bottom: 1rem;
+}
+
 .half-height {
-    flex: 1 1 50%;
+    max-height: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
 .list-area {
@@ -60,6 +77,7 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow-y: auto;
 }
 
 .section-title {
@@ -73,7 +91,7 @@ button {
     padding: 0.5rem;
     margin: 0.5rem;
     border-radius: 0.5rem;
-    flex: 0 1 25%;
+    flex: 0 1 40%;
 }
 
 .recipe-quantity {
@@ -93,6 +111,14 @@ button {
 
 .recipe-materials-wrapper div:last-of-type {
     margin-right: 0.25rem;
+}
+
+.material-inner-wrapper {
+    display: block;
+}
+
+.material-card {
+    flex: 0 1 20%;
 }
 
 .material-card div {
@@ -124,6 +150,10 @@ body {
     background-image: url('../assets/images/bg.jpg');
     background-size: cover;
     color: #DEDEDE;
+}
+
+h1 {
+    font-size: 1rem;
 }
 
 input[type="text"] {

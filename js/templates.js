@@ -11,10 +11,10 @@ function templates() {
     /**
      * _drawIcon - helper function
      * @param {*} cust - custom CSS class prefix to appear on icon block classes
-     * @param {*} iconName - for data-glyph param
+     * @param {*} iconName
      */
     function _drawIcon(cust, iconName) {
-        return '<div class="' + cust + '-icon-wrapper"><span class="' + cust + '-icon oi" data-glyph="' + iconName + '" aria-hidden="true"></span></div>';
+        return '';
     };
 
     /**
@@ -26,6 +26,12 @@ function templates() {
         return '<div class="' + cust + '-image-wrapper"><img class="'+ cust + '-image" src="assets/images/' + imgSrc + '"/></div>';
     };
 
+    /**
+     * _drawButton - helper function
+     * @param {*} cust - custom CSS classp refix to include on button block classes
+     * @param {*} attr - custom attr(s) to include on the button
+     * @param {*} text
+     */
     function _drawButton(cust, attr, text) {
         return '<div class="' + cust + '-button-wrapper"><button class="' + cust + '-button" '+attr+'>' + text + '</button></div>'
     }
@@ -45,11 +51,18 @@ function templates() {
     
             card += '<div class="recipe-materials-wrapper">';
             for (var i = 0; i < recipeMats.length; i++) {
-                card += _drawText('recipe-material-name', window.materialNames[recipeMats[i].id][lang]);
-                card += _drawText('recipe-material-quantity', '('+recipeMats[i].quantity+')');
+                card += '<span class="material-inner-wrapper">';
+                if (recipeMats[i].recipe) {
+                    card += _drawText('recipe-material-name', window.recipes[recipeMats[i].id].name[lang]);
+                    card += _drawText('recipe-material-quantity', '('+recipeMats[i].quantity+')');
+                } else {
+                    card += _drawText('recipe-material-name', window.materialNames[recipeMats[i].id][lang]);
+                    card += _drawText('recipe-material-quantity', '('+recipeMats[i].quantity+')');
+                }
+                card += '</span>';
             }
             card += '</div>';
-            
+
             if (mode === "select") {
                 card += _drawButton('recipecard-select', 'data-recipe="' + recipeID + '"', window.ui.select[lang]);
             } else if (mode === "remove") {
@@ -60,13 +73,21 @@ function templates() {
             
             return card;
         },
-        "materialCard" : function (matID, quantity, lang) {
+        "materialCard" : function (matID, quantity, recipe, lang) {
             var card = '<div class="card material-card">';
 
-            var materialName = window.materialNames[matID][lang];
+            var materialName = '';
+            console.log(recipe);
+            if (recipe) {
+                materialName = window.recipes[matID].name[lang];
+            } else {
+                materialName = window.materialNames[matID][lang];
+            }
 
+            card += '<span class="material-inner-wrapper">';
             card += _drawText('material-name', materialName);
             card += _drawText('material-quantity', '('+quantity+')');
+            card += '</span>';
 
             card += '</div>';
 

@@ -5,7 +5,6 @@
         <title>NH Craftool</title>
         <link rel="stylesheet" href="css/base.css" />
         <!-- libraries and/or other required assets -->
-        <link href="assets/open-iconic/font/css/open-iconic.css" rel="stylesheet">
         <script src="assets/jquery-3-4-1.js"></script>
         <!-- data json files -->
         <script type="text/javascript" src="data/recipes.js"></script>
@@ -17,7 +16,15 @@
     </head>
 
     <body>
-        
+        <nav>
+            <h1 class="page-title">NH Craftool</h1>
+            <div class="lang-picker-wrapper">
+                <select class="lang-picker">
+                    <option value="0">en-US</option>
+                    <option value="1">es-ES</option>
+                </select>
+            </div>
+        </nav>
         <div class="interface-columns">
             <div class="col col-30">
                 <input id="search-input" type="text" name="searchItem"/>
@@ -30,7 +37,7 @@
         </div>
         <div class="appinfo">
             <p>
-                NH Craftool [ver. 001]
+                [ver. 001][GPL-v3.0]
             </p>
         </div>
     </body>

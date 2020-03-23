@@ -14,23 +14,23 @@ $(document).ready(function() {
     // get the templates for our pieces
     window.templates = templates();
 
-    function checkMaterials(matID) {
+    function checkMaterials(matID, matR) {
         for (var i = 0; i < materialsNeeded.length; i++) {
-            if (materialsNeeded[i].id === matID) {
+            if (materialsNeeded[i].id === matID && materialsNeeded[i].recipe === matR) {
                 return i;
             }
         }
         return -1;
     }
 
-    function addMaterial(matID, matQ) {
-        var check = checkMaterials(matID);
+    function addMaterial(matID, matQ, matR) {
+        var check = checkMaterials(matID, matR);
 
         if (check > -1) {
             materialsNeeded[check].quantity += matQ;
         } else {
             materialsNeeded.push(
-                {id: matID, quantity: matQ}
+                {id: matID, quantity: matQ, recipe: matR}
             );
         }
     }
@@ -39,7 +39,7 @@ $(document).ready(function() {
         // display materials
         var matsOutput = '';
         for (var i = 0; i < materialsNeeded.length; i++) {
-            matsOutput += window.templates.materialCard(materialsNeeded[i].id, materialsNeeded[i].quantity, lang);
+            matsOutput += window.templates.materialCard(materialsNeeded[i].id, materialsNeeded[i].quantity, materialsNeeded[i].recipe, lang);
         }
 
         if (matsOutput !== '') {
@@ -57,7 +57,7 @@ $(document).ready(function() {
                 var tempMats = window.recipes[recipesSelected[i].id].mats;
                 var numCrafts = recipesSelected[i].quantity;
                 for (var x = 0; x < tempMats.length; x++) {
-                    addMaterial(tempMats[x].id, (tempMats[x].quantity * numCrafts));
+                    addMaterial(tempMats[x].id, (tempMats[x].quantity * numCrafts), tempMats[x].recipe);
                 }
             }
         }
@@ -140,9 +140,27 @@ $(document).ready(function() {
         }
     }
 
-    $('#search-input')
-    .attr('placeholder', window.ui.prompt[lang])
-    .on('input', function() {
+    function localizeText() {
+        $('#search-recipes .section-title').text(window.ui.recipes[lang]);
+        $('#search-recipes .search-results-inner').html(window.ui.empty[lang]);
+
+        $('#craft-list .section-title').text(window.ui.toDoList[lang]);
+        $('#craft-list .craft-list-inner').html(window.ui.empty[lang]);
+
+        $('#mats-needed .section-title').text(window.ui.matsList[lang]);
+        $('#mats-needed .mats-needed-inner').html(window.ui.empty[lang]);
+
+        $('#search-input').attr('placeholder', window.ui.prompt[lang]);
+    }
+
+    $('.lang-picker').on('change', function(event) {
+        lang = $(this).find(":selected").val();
+        localizeText();
+        searchRecipes(null);
+        drawCraftList();
+    });
+
+    $('#search-input').on('input', function() {
         var searchText = $('#search-input').val().toLowerCase();
         searchRecipes(searchText);
     });
@@ -152,21 +170,13 @@ $(document).ready(function() {
         selectRecipe(rid);
     });  
 
-    $('#search-recipes .section-title').text(window.ui.recipes[lang]);
-    $('#search-recipes .search-results-inner').html(window.ui.empty[lang]);
-
     $('#craft-list').on('click', '.recipecard-remove-button', function(event) {
         var rid = $(this).data('recipe');
         removeRecipe(rid);
     });
 
-    $('#craft-list .section-title').text(window.ui.toDoList[lang]);
-    $('#craft-list .craft-list-inner').html(window.ui.empty[lang]);
-
-    $('#mats-needed .section-title').text(window.ui.matsList[lang]);
-    $('#mats-needed .mats-needed-inner').html(window.ui.empty[lang]);
-
     // initialize items
+    localizeText();
     searchRecipes(null);
     drawCraftList();
 });
