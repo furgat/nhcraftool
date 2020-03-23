@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
+/* layout */
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    width: auto;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type="text"] {
+    border: 1px solid #555;
+    padding: 0.5rem;
+}
+
+button {
+    position: relative;
+    padding: 0.25rem;
+    width: 100%;
+    margin-top: 0.75rem;
+    border: 1px solid #212121;
+}
+
+.interface-columns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.col-30 {
+    width: 30%;
+}
+
+.col-70 {
+    width: 70%;
+}
+
+.col:last-of-type {
+    padding-left: 0;
+}
+
+.half-height {
+    flex: 1 1 50%;
+}
+
+.list-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.card {
+    width: auto;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    flex: 0 1 25%;
+}
+
+.recipe-quantity {
+    margin-left: 0.25rem;
+}
+
+.recipe-materials-wrapper {
+    border: 1px solid #000;
+    margin-top: 0.5rem;
+    padding: 0.125rem;
+}
+
+.recipe-materials-wrapper div {
+    display: inline-block;
+    margin-left: 0.25rem;
+}
+
+.recipe-materials-wrapper div:last-of-type {
+    margin-right: 0.25rem;
+}
+
+.material-card div {
+    display: inline-block;
+}
+
+.material-card div:last-of-type {
+    margin-left: 0.25rem;
+}
+
+.appinfo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#search-recipes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-recipes-inner {
+    flex: 0 1 auto;
+}
+
+/* theme */
+body {
+    background-image: url('../assets/images/bg.jpg');
+    background-size: cover;
+    color: #DEDEDE;
+}
+
+input[type="text"] {
+    background-color: #212121;
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+button {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    color: #DEDEDE;
+    font-weight: bold;
+}
+
+.recipecard-select-button {
+    background-color: #174f4f;
+}
+
+.recipecard-remove-button {
+    background-color: #4f1733; /* #6f2a41; */
+}
+
+.main-section {
+    background-color: #151515;
+}
+
+.section-title {
+    background-color: #212121;
+}
+
+.list-area {
+    background-color: #212121;
+    box-shadow: 0 0 10px 7px #151515 inset;
+}
+
+.card {
+    background-color: #444;
+}
+
+.recipe-name-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.material-quantity-text,
+.recipe-material-quantity-text,
+.recipe-quantity {
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+/* media */
+
+/* state */
+button:hover {
+    cursor: pointer;
+}
+
+button:hover::after {
+    content: '';
+    position: absolute;
+    border: 1px solid #AAA;
+    box-shadow: 0 0 5px 1px #777 inset;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 0.5rem;
+}
+
+button:active::after {
+    content: '';
+    position: absolute;
+    border: 1px solid #333;
+    box-shadow: 0 0 5px 1px #555 inset;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 0.5rem;
+}

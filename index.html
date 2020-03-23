@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>NH Craftool</title>
+        <link rel="stylesheet" href="css/base.css" />
+        <!-- libraries and/or other required assets -->
+        <link href="assets/open-iconic/font/css/open-iconic.css" rel="stylesheet">
+        <script src="assets/jquery-3-4-1.js"></script>
+        <!-- data json files -->
+        <script type="text/javascript" src="data/recipes.js"></script>
+        <script type="text/javascript" src="data/uiTerms.js"></script>
+        <!-- core functionality -->
+        <script type="text/javascript" src="js/helpers.js"></script>
+        <script type="text/javascript" src="js/templates.js"></script>
+        <script type="text/javascript" src="js/core.js"></script>
+    </head>
+
+    <body>
+        
+        <div class="interface-columns">
+            <div class="col col-30">
+                <input id="search-input" type="text" name="searchItem"/>
+                <div id="search-recipes" class="main-section"><h2 class="section-title"></h2><div class="search-recipes-inner list-area"></div></div> 
+            </div>
+            <div class="col col-70">
+                <div id="craft-list" class="main-section half-height"><h2 class="section-title"></h2><div class="craft-list-inner list-area"></div></div>
+                <div id="mats-needed" class="main-section half-height"><h2 class="section-title"></h2><div class="mats-needed-inner list-area"></div></div>
+            </div>
+        </div>
+        <div class="appinfo">
+            <p>
+                NH Craftool [ver. 001]
+            </p>
+        </div>
+    </body>
+</html>
