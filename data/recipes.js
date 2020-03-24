@@ -67,7 +67,7 @@ function initRecipes() {
             ]
         },
         {
-            "name" : ["net", "red frágil"], // 8
+            "name" : ["net", "red"], // 8
             "mats" : [
                 {id : 7, quantity : 1, recipe : true}, // fragile fishing pole
                 {id : 3, quantity : 1, recipe : false} // iron nugget
